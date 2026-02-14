@@ -1,0 +1,4 @@
+[install]
+minimumReleaseAge = 1209600  # 14 days
+# Optional exemptions
+# minimumReleaseAgeExcludes = ["@types/bun"]

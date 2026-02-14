@@ -1,0 +1,98 @@
+[
+	{
+		"job_id": 10001,
+		"name": "training_gpt4",
+		"user_name": "alice",
+		"partition": "gpu",
+		"job_state": "RUNNING",
+		"node_count": 4,
+		"cpus": 128,
+		"time_limit": "48:00:00",
+		"submit_time": "2026-02-05T08:00:00",
+		"start_time": "2026-02-05T08:05:12"
+	},
+	{
+		"job_id": 10002,
+		"name": "molecular_sim",
+		"user_name": "bob",
+		"partition": "compute",
+		"job_state": "RUNNING",
+		"node_count": 8,
+		"cpus": 256,
+		"time_limit": "24:00:00",
+		"submit_time": "2026-02-05T10:30:00",
+		"start_time": "2026-02-05T10:31:05"
+	},
+	{
+		"job_id": 10003,
+		"name": "data_preprocess",
+		"user_name": "charlie",
+		"partition": "batch",
+		"job_state": "PENDING",
+		"node_count": 1,
+		"cpus": 16,
+		"time_limit": "02:00:00",
+		"submit_time": "2026-02-06T01:00:00",
+		"start_time": ""
+	},
+	{
+		"job_id": 10004,
+		"name": "climate_model",
+		"user_name": "diana",
+		"partition": "compute",
+		"job_state": "RUNNING",
+		"node_count": 16,
+		"cpus": 512,
+		"time_limit": "72:00:00",
+		"submit_time": "2026-02-04T12:00:00",
+		"start_time": "2026-02-04T12:02:30"
+	},
+	{
+		"job_id": 10005,
+		"name": "genome_align",
+		"user_name": "eve",
+		"partition": "highmem",
+		"job_state": "COMPLETED",
+		"node_count": 2,
+		"cpus": 64,
+		"time_limit": "06:00:00",
+		"submit_time": "2026-02-05T14:00:00",
+		"start_time": "2026-02-05T14:00:45"
+	},
+	{
+		"job_id": 10006,
+		"name": "render_frames",
+		"user_name": "frank",
+		"partition": "gpu",
+		"job_state": "FAILED",
+		"node_count": 1,
+		"cpus": 32,
+		"time_limit": "12:00:00",
+		"submit_time": "2026-02-05T20:00:00",
+		"start_time": "2026-02-05T20:01:10"
+	},
+	{
+		"job_id": 10007,
+		"name": "fluid_dynamics",
+		"user_name": "alice",
+		"partition": "compute",
+		"job_state": "PENDING",
+		"node_count": 4,
+		"cpus": 128,
+		"time_limit": "36:00:00",
+		"submit_time": "2026-02-06T03:00:00",
+		"start_time": ""
+	},
+	{
+		"job_id": 10008,
+		"name": "image_classify",
+		"user_name": "bob",
+		"partition": "gpu",
+		"job_state": "RUNNING",
+		"node_count": 2,
+		"cpus": 64,
+		"time_limit": "08:00:00",
+		"submit_time": "2026-02-06T04:00:00",
+		"start_time": "2026-02-06T04:02:00"
+	}
+]

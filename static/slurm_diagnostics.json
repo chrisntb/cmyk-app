@@ -1,0 +1,17 @@
+[
+	{ "key": "server_thread_count", "value": "10" },
+	{ "key": "jobs_submitted", "value": "48,523" },
+	{ "key": "jobs_started", "value": "47,891" },
+	{ "key": "jobs_completed", "value": "46,102" },
+	{ "key": "jobs_failed", "value": "312" },
+	{ "key": "jobs_canceled", "value": "1,477" },
+	{ "key": "jobs_running", "value": "4" },
+	{ "key": "jobs_pending", "value": "2" },
+	{ "key": "schedule_cycle_last", "value": "1245 ms" },
+	{ "key": "schedule_cycle_mean", "value": "892 ms" },
+	{ "key": "bf_cycle_last", "value": "3421 ms" },
+	{ "key": "bf_last_depth", "value": "500" },
+	{ "key": "bf_last_depth_try", "value": "500" },
+	{ "key": "rpcs_processed", "value": "2,891,034" },
+	{ "key": "dbd_agent_queue_size", "value": "0" }
+]

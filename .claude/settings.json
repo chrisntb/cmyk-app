@@ -1,0 +1,25 @@
+{
+	"model": "sonnet",
+	"permissions": {
+		"deny": [
+			"Read(.git)",
+			"Glob(.git)",
+			"Grep(.git)",
+			"Read(.secrets)",
+			"Glob(.secrets)",
+			"Grep(.secrets)",
+			"Read(.svelte-kit)",
+			"Glob(.svelte-kit)",
+			"Grep(.svelte-kit)",
+			"Read(coverage)",
+			"Glob(coverage)",
+			"Grep(coverage)",
+			"Read(node_modules)",
+			"Glob(node_modules)",
+			"Grep(node_modules)",
+			"Read(tmp)",
+			"Glob(tmp)",
+			"Grep(tmp)"
+		]
+	}
+}

@@ -1,0 +1,37 @@
+[
+	{
+		"name": "physics",
+		"description": "Department of Physics",
+		"organization": "College of Science",
+		"coordinators": ["alice", "bob"],
+		"default_qos": "normal"
+	},
+	{
+		"name": "climate-lab",
+		"description": "Climate Research Lab",
+		"organization": "College of Science",
+		"coordinators": ["diana"],
+		"default_qos": "high"
+	},
+	{
+		"name": "cs-research",
+		"description": "Computer Science Research",
+		"organization": "College of Engineering",
+		"coordinators": ["eve"],
+		"default_qos": "normal"
+	},
+	{
+		"name": "bioinformatics",
+		"description": "Bioinformatics Center",
+		"organization": "College of Medicine",
+		"coordinators": ["charlie"],
+		"default_qos": "normal"
+	},
+	{
+		"name": "training",
+		"description": "Training & Workshops",
+		"organization": "HPC Center",
+		"coordinators": ["frank"],
+		"default_qos": "low"
+	}
+]

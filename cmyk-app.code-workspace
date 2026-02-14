@@ -1,0 +1,67 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		// >- Recommended settings
+		"chat.disableAIFeatures": true,
+		"editor.insertSpaces": true,
+		"editor.minimap.enabled": false,
+		"editor.tabSize": 2,
+		"editor.wordWrap": "on",
+		"editor.wordWrapColumn": 1000,
+		"explorer.confirmDelete": false,
+		"files.autoSave": "afterDelay",
+		"files.autoSaveDelay": 2500,
+		"files.insertFinalNewline": true,
+		"files.trimTrailingWhitespace": true,
+		"git.autofetch": true,
+		"git.confirmSync": false,
+		"git.detectSubmodules": true,
+		"git.detectSubmodulesLimit": 42,
+		"git.inputValidation": true,
+		"git.openRepositoryInParentFolders": "never",
+		"scm.alwaysShowRepositories": true,
+		"workbench.editor.tabSizing": "fit",
+		"workbench.startupEditor": "newUntitledFile",
+		// <- Recommended settings
+		"[css]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[javascriptreact]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[json]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[jsonc]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[typescriptreact]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"biome.lsp.bin": "./node_modules/@biomejs/biome/bin/biome",
+		"files.associations": {
+			"*.css": "tailwindcss"
+		},
+		"files.watcherExclude": {
+			"**/node_modules/*/**": true
+		},
+		"json.schemaDownload.trustedDomains": {
+			"https://biomejs.dev": true
+		},
+		"svelte.enable-ts-plugin": true,
+		"tailwindCSS.classFunctions": ["tw", "clsx"],
+		"tailwindCSS.includeLanguages": {
+			"plaintext": "html"
+		}
+	}
+}

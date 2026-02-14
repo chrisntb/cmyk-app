@@ -1,0 +1,112 @@
+[
+	{
+		"name": "node001",
+		"state": "ALLOCATED",
+		"cpus": 64,
+		"alloc_cpus": 64,
+		"real_memory": 256000,
+		"alloc_memory": 240000,
+		"partitions": ["compute"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "node002",
+		"state": "ALLOCATED",
+		"cpus": 64,
+		"alloc_cpus": 48,
+		"real_memory": 256000,
+		"alloc_memory": 192000,
+		"partitions": ["compute"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "node003",
+		"state": "IDLE",
+		"cpus": 64,
+		"alloc_cpus": 0,
+		"real_memory": 256000,
+		"alloc_memory": 0,
+		"partitions": ["compute"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "node004",
+		"state": "MIXED",
+		"cpus": 64,
+		"alloc_cpus": 32,
+		"real_memory": 256000,
+		"alloc_memory": 128000,
+		"partitions": ["compute", "batch"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "gpu001",
+		"state": "ALLOCATED",
+		"cpus": 128,
+		"alloc_cpus": 128,
+		"real_memory": 512000,
+		"alloc_memory": 480000,
+		"partitions": ["gpu"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "gpu002",
+		"state": "ALLOCATED",
+		"cpus": 128,
+		"alloc_cpus": 64,
+		"real_memory": 512000,
+		"alloc_memory": 256000,
+		"partitions": ["gpu"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "gpu003",
+		"state": "DOWN",
+		"cpus": 128,
+		"alloc_cpus": 0,
+		"real_memory": 512000,
+		"alloc_memory": 0,
+		"partitions": ["gpu"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "highmem001",
+		"state": "IDLE",
+		"cpus": 32,
+		"alloc_cpus": 0,
+		"real_memory": 1024000,
+		"alloc_memory": 0,
+		"partitions": ["highmem"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "highmem002",
+		"state": "ALLOCATED",
+		"cpus": 32,
+		"alloc_cpus": 32,
+		"real_memory": 1024000,
+		"alloc_memory": 900000,
+		"partitions": ["highmem"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	},
+	{
+		"name": "batch001",
+		"state": "MIXED",
+		"cpus": 16,
+		"alloc_cpus": 8,
+		"real_memory": 64000,
+		"alloc_memory": 32000,
+		"partitions": ["batch"],
+		"os": "Linux 6.1",
+		"architecture": "x86_64"
+	}
+]

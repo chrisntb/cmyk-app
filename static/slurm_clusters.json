@@ -1,0 +1,18 @@
+[
+	{
+		"name": "hpc-main",
+		"control_host": "slurmctld01.example.com",
+		"control_port": 6817,
+		"nodes": "node[001-004],gpu[001-003],highmem[001-002],batch001",
+		"rpc_version": 9600,
+		"tres": "cpu=784,mem=3584G,node=10"
+	},
+	{
+		"name": "hpc-dev",
+		"control_host": "slurmctld-dev.example.com",
+		"control_port": 6817,
+		"nodes": "dev[001-002]",
+		"rpc_version": 9600,
+		"tres": "cpu=32,mem=128G,node=2"
+	}
+]

@@ -1,0 +1,38 @@
+[
+	{
+		"name": "alice",
+		"default_account": "physics",
+		"admin_level": "None",
+		"accounts": ["physics"]
+	},
+	{
+		"name": "bob",
+		"default_account": "physics",
+		"admin_level": "None",
+		"accounts": ["physics"]
+	},
+	{
+		"name": "charlie",
+		"default_account": "bioinformatics",
+		"admin_level": "None",
+		"accounts": ["bioinformatics"]
+	},
+	{
+		"name": "diana",
+		"default_account": "climate-lab",
+		"admin_level": "Operator",
+		"accounts": ["climate-lab", "physics"]
+	},
+	{
+		"name": "eve",
+		"default_account": "cs-research",
+		"admin_level": "None",
+		"accounts": ["cs-research"]
+	},
+	{
+		"name": "frank",
+		"default_account": "training",
+		"admin_level": "Administrator",
+		"accounts": ["training", "cs-research", "physics"]
+	}
+]

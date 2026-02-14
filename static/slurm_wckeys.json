@@ -1,0 +1,13 @@
+[
+	{ "id": 1, "name": "project-alpha", "user": "alice", "cluster": "hpc-main" },
+	{ "id": 2, "name": "project-alpha", "user": "bob", "cluster": "hpc-main" },
+	{ "id": 3, "name": "climate-2026", "user": "diana", "cluster": "hpc-main" },
+	{ "id": 4, "name": "genome-seq", "user": "eve", "cluster": "hpc-main" },
+	{
+		"id": 5,
+		"name": "training-workshop",
+		"user": "frank",
+		"cluster": "hpc-main"
+	},
+	{ "id": 6, "name": "dev-testing", "user": "frank", "cluster": "hpc-dev" }
+]

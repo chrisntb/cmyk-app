@@ -1,0 +1,6 @@
+[
+	{ "name": "matlab", "total": 50, "used": 12, "free": 38, "remote": false },
+	{ "name": "gaussian", "total": 10, "used": 3, "free": 7, "remote": false },
+	{ "name": "ansys", "total": 20, "used": 20, "free": 0, "remote": true },
+	{ "name": "comsol", "total": 5, "used": 1, "free": 4, "remote": true }
+]

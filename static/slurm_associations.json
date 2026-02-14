@@ -1,0 +1,65 @@
+[
+	{
+		"id": 1,
+		"account": "physics",
+		"user": "alice",
+		"cluster": "hpc-main",
+		"partition": "",
+		"qos": ["normal", "high"],
+		"default_qos": "normal"
+	},
+	{
+		"id": 2,
+		"account": "physics",
+		"user": "bob",
+		"cluster": "hpc-main",
+		"partition": "",
+		"qos": ["normal"],
+		"default_qos": "normal"
+	},
+	{
+		"id": 3,
+		"account": "climate-lab",
+		"user": "diana",
+		"cluster": "hpc-main",
+		"partition": "",
+		"qos": ["normal", "high", "urgent"],
+		"default_qos": "high"
+	},
+	{
+		"id": 4,
+		"account": "cs-research",
+		"user": "eve",
+		"cluster": "hpc-main",
+		"partition": "",
+		"qos": ["normal"],
+		"default_qos": "normal"
+	},
+	{
+		"id": 5,
+		"account": "bioinformatics",
+		"user": "charlie",
+		"cluster": "hpc-main",
+		"partition": "",
+		"qos": ["normal", "high"],
+		"default_qos": "normal"
+	},
+	{
+		"id": 6,
+		"account": "training",
+		"user": "frank",
+		"cluster": "hpc-main",
+		"partition": "compute",
+		"qos": ["low"],
+		"default_qos": "low"
+	},
+	{
+		"id": 7,
+		"account": "cs-research",
+		"user": "frank",
+		"cluster": "hpc-main",
+		"partition": "",
+		"qos": ["normal", "high"],
+		"default_qos": "normal"
+	}
+]

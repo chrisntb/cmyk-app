@@ -1,0 +1,12 @@
+[
+	{ "type": "cpu", "name": "", "id": 1, "count": 784 },
+	{ "type": "mem", "name": "", "id": 2, "count": 3670016 },
+	{ "type": "energy", "name": "", "id": 3, "count": 0 },
+	{ "type": "node", "name": "", "id": 4, "count": 10 },
+	{ "type": "billing", "name": "", "id": 5, "count": 784 },
+	{ "type": "gres", "name": "gpu", "id": 1001, "count": 24 },
+	{ "type": "gres", "name": "gpu:a100", "id": 1002, "count": 16 },
+	{ "type": "gres", "name": "gpu:v100", "id": 1003, "count": 8 },
+	{ "type": "license", "name": "matlab", "id": 2001, "count": 50 },
+	{ "type": "license", "name": "gaussian", "id": 2002, "count": 10 }
+]

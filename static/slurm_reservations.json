@@ -1,0 +1,32 @@
+[
+	{
+		"name": "maintenance",
+		"users": "root",
+		"accounts": "",
+		"partition": "",
+		"node_count": 10,
+		"start_time": "2026-02-07T00:00:00",
+		"end_time": "2026-02-07T06:00:00",
+		"state": "INACTIVE"
+	},
+	{
+		"name": "workshop_feb",
+		"users": "",
+		"accounts": "training",
+		"partition": "compute",
+		"node_count": 2,
+		"start_time": "2026-02-10T09:00:00",
+		"end_time": "2026-02-10T17:00:00",
+		"state": "INACTIVE"
+	},
+	{
+		"name": "priority_run",
+		"users": "diana",
+		"accounts": "climate-lab",
+		"partition": "compute",
+		"node_count": 8,
+		"start_time": "2026-02-06T00:00:00",
+		"end_time": "2026-02-08T00:00:00",
+		"state": "ACTIVE"
+	}
+]

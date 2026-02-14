@@ -1,0 +1,38 @@
+[
+	{
+		"name": "low",
+		"description": "Low priority batch jobs",
+		"priority": 10,
+		"max_jobs_per_user": 100,
+		"max_tres_per_user": "cpu=64",
+		"max_wall_clock": "168:00:00",
+		"preempt_mode": "requeue"
+	},
+	{
+		"name": "normal",
+		"description": "Standard priority",
+		"priority": 50,
+		"max_jobs_per_user": 50,
+		"max_tres_per_user": "cpu=256",
+		"max_wall_clock": "72:00:00",
+		"preempt_mode": "off"
+	},
+	{
+		"name": "high",
+		"description": "High priority research",
+		"priority": 100,
+		"max_jobs_per_user": 20,
+		"max_tres_per_user": "cpu=512",
+		"max_wall_clock": "72:00:00",
+		"preempt_mode": "off"
+	},
+	{
+		"name": "urgent",
+		"description": "Urgent/deadline jobs",
+		"priority": 200,
+		"max_jobs_per_user": 5,
+		"max_tres_per_user": "cpu=1024",
+		"max_wall_clock": "48:00:00",
+		"preempt_mode": "off"
+	}
+]
