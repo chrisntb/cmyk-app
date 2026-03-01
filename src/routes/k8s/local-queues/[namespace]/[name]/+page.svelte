@@ -47,7 +47,7 @@ $effect(() => {
 			class="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
 		>
 			<ArrowLeft class="size-4" />
-			Back to Local Queues
+			Back to Kueue Queues
 		</a>
 	</div>
 

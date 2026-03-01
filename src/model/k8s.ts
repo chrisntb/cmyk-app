@@ -226,3 +226,29 @@ export interface LocalQueue {
 	reservingWorkloads: number;
 	admittedWorkloads: number;
 }
+
+interface KaiQueueResource {
+	limit: number;
+	over_quota_weight?: number;
+	quota: number;
+}
+
+export interface KaiSchedulerQueue {
+	name: string;
+	child_queues?: string[];
+	resources: {
+		cpu?: KaiQueueResource;
+		gpu?: KaiQueueResource;
+		memory?: KaiQueueResource;
+	};
+}
+
+export interface KaiSchedulerChildQueue {
+	name: string;
+	parent?: string;
+	resources: {
+		cpu?: KaiQueueResource;
+		gpu?: KaiQueueResource;
+		memory?: KaiQueueResource;
+	};
+}

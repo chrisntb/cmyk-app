@@ -7,6 +7,7 @@ import CalendarClock from "@lucide/svelte/icons/calendar-clock";
 import ChevronRight from "@lucide/svelte/icons/chevron-right";
 import Cpu from "@lucide/svelte/icons/cpu";
 import Gauge from "@lucide/svelte/icons/gauge";
+import GitBranch from "@lucide/svelte/icons/git-branch";
 import Home from "@lucide/svelte/icons/home";
 import Info from "@lucide/svelte/icons/info";
 import Key from "@lucide/svelte/icons/key";
@@ -32,7 +33,8 @@ const clusterItems = [
 	{ title: "Nodes", href: "/k8s/nodes", icon: Server },
 	{ title: "Pods", href: "/k8s/pods", icon: Box },
 	{ title: "Resource Flavors", href: "/k8s/resource-flavors", icon: Cpu },
-	{ title: "Local Queues", href: "/k8s/local-queues", icon: List },
+	{ title: "Kueue Queues", href: "/k8s/local-queues", icon: List },
+	{ title: "KAI Queues", href: "/k8s/kai-queues", icon: GitBranch },
 ];
 
 const slurmItems = [

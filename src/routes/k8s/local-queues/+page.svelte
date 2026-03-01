@@ -36,7 +36,7 @@ $effect(() => {
 <div class="space-y-6">
 	<div class="flex items-center gap-3">
 		<List class="size-8 text-primary" />
-		<h1 class="text-3xl font-bold tracking-tight">Local Queues</h1>
+		<h1 class="text-3xl font-bold tracking-tight">Kueue Queues</h1>
 	</div>
 	<p class="text-muted-foreground">Local queues and their workload status.</p>
 

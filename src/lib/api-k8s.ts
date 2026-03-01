@@ -1,6 +1,8 @@
 import type {
 	Container,
 	ContainerStatus,
+	KaiSchedulerChildQueue,
+	KaiSchedulerQueue,
 	LocalQueue,
 	Node,
 	NodeDetails,
@@ -295,4 +297,18 @@ export const fetchK8sLocalQueueDetails = (
 			if (!queue) throw new Error("Local queue not found");
 			return queue;
 		},
+	);
+
+export const fetchKaiSchedulerQueues = (): Promise<KaiSchedulerQueue[]> =>
+	fetchResource<KaiSchedulerQueue[]>(
+		"kai-scheduler-queues",
+		"/k8s_kai-scheduler_queues.json",
+	);
+
+export const fetchKaiSchedulerChildQueues = (
+	parentName: string,
+): Promise<KaiSchedulerChildQueue[]> =>
+	fetchResource<KaiSchedulerChildQueue[]>(
+		`kai-scheduler-queues/${encodeURIComponent(parentName)}/child-queues`,
+		"/k8s_kai-scheduler_child-queues.json",
 	);
