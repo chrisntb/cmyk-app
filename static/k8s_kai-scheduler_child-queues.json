@@ -1,7 +1,7 @@
 [
 	{
 		"name": "mock-training",
-		"parent": "mock-research",
+		"parent": "mock-research-grp",
 		"resources": {
 			"cpu": {
 				"limit": -1,
@@ -21,8 +21,8 @@
 		}
 	},
 	{
-		"name": "mock-inference",
-		"parent": "mock-production",
+		"name": "mock-chat",
+		"parent": "mock-inference",
 		"resources": {
 			"cpu": {
 				"limit": -1,
