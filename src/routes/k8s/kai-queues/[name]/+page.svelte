@@ -18,7 +18,8 @@ function formatResource(val: number | undefined): string {
 
 async function fetchData(parentName: string) {
 	try {
-		childQueues = await fetchKaiSchedulerChildQueues(parentName);
+		const all = await fetchKaiSchedulerChildQueues(parentName);
+		childQueues = all.filter((q) => q.parent === parentName);
 	} catch (e) {
 		error = e instanceof Error ? e.message : "Failed to fetch child queues";
 	} finally {

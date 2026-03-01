@@ -1,9 +1,9 @@
 [
     {
         "child_queues": [
-            "default-queue"
+            "mock-training"
         ],
-        "name": "default-parent-queue",
+        "name": "mock-research",
         "resources": {
             "cpu": {
                 "limit": -1,
@@ -24,9 +24,9 @@
     },
     {
         "child_queues": [
-            "team"
+            "mock-inference"
         ],
-        "name": "department",
+        "name": "mock-production",
         "resources": {
             "cpu": {
                 "limit": -1,

@@ -1,23 +1,44 @@
 [
-    {
-        "name": "default-queue",
-        "parent": "default-parent-queue",
-        "resources": {
-            "cpu": {
-                "limit": -1,
-                "over_quota_weight": 1,
-                "quota": 0
-            },
-            "gpu": {
-                "limit": -1,
-                "over_quota_weight": 1,
-                "quota": 0
-            },
-            "memory": {
-                "limit": -1,
-                "over_quota_weight": 1,
-                "quota": 0
-            }
-        }
-    }
+	{
+		"name": "mock-training",
+		"parent": "mock-research",
+		"resources": {
+			"cpu": {
+				"limit": -1,
+				"over_quota_weight": 1,
+				"quota": 0
+			},
+			"gpu": {
+				"limit": -1,
+				"over_quota_weight": 1,
+				"quota": 0
+			},
+			"memory": {
+				"limit": -1,
+				"over_quota_weight": 1,
+				"quota": 0
+			}
+		}
+	},
+	{
+		"name": "mock-inference",
+		"parent": "mock-production",
+		"resources": {
+			"cpu": {
+				"limit": -1,
+				"over_quota_weight": 1,
+				"quota": 0
+			},
+			"gpu": {
+				"limit": -1,
+				"over_quota_weight": 1,
+				"quota": 0
+			},
+			"memory": {
+				"limit": -1,
+				"over_quota_weight": 1,
+				"quota": 0
+			}
+		}
+	}
 ]
