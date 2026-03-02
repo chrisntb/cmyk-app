@@ -1,12 +1,15 @@
 <script lang="ts">
 import AlertTriangle from "@lucide/svelte/icons/alert-triangle";
 import Box from "@lucide/svelte/icons/box";
+import Check from "@lucide/svelte/icons/check";
+import ChevronDown from "@lucide/svelte/icons/chevron-down";
 import CircleCheck from "@lucide/svelte/icons/circle-check";
 import CircleDashed from "@lucide/svelte/icons/circle-dashed";
 import CircleX from "@lucide/svelte/icons/circle-x";
 import Clock from "@lucide/svelte/icons/clock";
 import { resolve } from "$app/paths";
 import { fetchK8sPods } from "$lib/api-k8s";
+import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 import * as Table from "$lib/components/ui/table/index.js";
 
 interface Pod {
@@ -22,6 +25,13 @@ interface Pod {
 let pods = $state<Pod[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
+let nodeFilter = $state("");
+
+let nodeNames = $derived([...new Set(pods.map((p) => p.node))].sort());
+
+let filteredPods = $derived(
+	nodeFilter ? pods.filter((p) => p.node === nodeFilter) : pods,
+);
 
 async function fetchPods() {
 	try {
@@ -81,11 +91,40 @@ $effect(() => {
 						<Table.Head>Status</Table.Head>
 						<Table.Head>Restarts</Table.Head>
 						<Table.Head>Pod IP</Table.Head>
-						<Table.Head>Node</Table.Head>
+						<Table.Head>
+							<div class="flex flex-col gap-1">
+								<span>Node</span>
+								<DropdownMenu.Root>
+									<DropdownMenu.Trigger>
+										<button
+											class="flex h-7 w-40 items-center justify-between rounded border border-input bg-background px-2 text-xs font-normal text-foreground hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring"
+										>
+											<span class={nodeFilter ? "" : "text-muted-foreground"}>
+												{nodeFilter || "All nodes"}
+											</span>
+											<ChevronDown class="size-3 shrink-0 text-muted-foreground" />
+										</button>
+									</DropdownMenu.Trigger>
+									<DropdownMenu.Content class="w-40">
+										<DropdownMenu.Item onclick={() => (nodeFilter = "")}>
+											<Check class="size-4 {nodeFilter === '' ? 'opacity-100' : 'opacity-0'}" />
+											All nodes
+										</DropdownMenu.Item>
+										<DropdownMenu.Separator />
+										{#each nodeNames as node (node)}
+											<DropdownMenu.Item onclick={() => (nodeFilter = node)}>
+												<Check class="size-4 {nodeFilter === node ? 'opacity-100' : 'opacity-0'}" />
+												{node}
+											</DropdownMenu.Item>
+										{/each}
+									</DropdownMenu.Content>
+								</DropdownMenu.Root>
+							</div>
+						</Table.Head>
 					</Table.Row>
 				</Table.Header>
 				<Table.Body>
-					{#each pods as pod (pod.name)}
+					{#each filteredPods as pod (pod.name)}
 						{@const statusInfo = getStatusIcon(pod.statusClass)}
 						<Table.Row>
 							<Table.Cell class="font-medium">
