@@ -1,9 +1,11 @@
 <script lang="ts">
 import CircleCheck from "@lucide/svelte/icons/circle-check";
 import CircleX from "@lucide/svelte/icons/circle-x";
+import RefreshCw from "@lucide/svelte/icons/refresh-cw";
 import Server from "@lucide/svelte/icons/server";
 import { resolve } from "$app/paths";
 import { fetchK8sNodes } from "$lib/api-k8s";
+import { Button } from "$lib/components/ui/button/index.js";
 import * as Table from "$lib/components/ui/table/index.js";
 
 interface Node {
@@ -19,6 +21,7 @@ interface Node {
 let nodes = $state<Node[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
+let refreshing = $state(false);
 
 async function fetchNodes() {
 	try {
@@ -27,7 +30,14 @@ async function fetchNodes() {
 		error = e instanceof Error ? e.message : "Failed to fetch nodes";
 	} finally {
 		loading = false;
+		refreshing = false;
 	}
+}
+
+async function refresh() {
+	refreshing = true;
+	error = null;
+	await fetchNodes();
 }
 
 function formatMemory(memory: string): string {
@@ -49,6 +59,10 @@ $effect(() => {
 	<div class="flex items-center gap-3">
 		<Server class="size-8 text-primary" />
 		<h1 class="text-3xl font-bold tracking-tight">Nodes</h1>
+		<Button variant="outline" size="sm" onclick={refresh} disabled={refreshing} class="ml-auto">
+			<RefreshCw class="size-4 {refreshing ? 'animate-spin' : ''}" />
+			Refresh
+		</Button>
 	</div>
 	<p class="text-muted-foreground">Cluster nodes and their status.</p>
 

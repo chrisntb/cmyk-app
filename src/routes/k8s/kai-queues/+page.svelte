@@ -1,13 +1,16 @@
 <script lang="ts">
 import GitBranch from "@lucide/svelte/icons/git-branch";
+import RefreshCw from "@lucide/svelte/icons/refresh-cw";
 import { resolve } from "$app/paths";
 import { fetchKaiSchedulerQueues } from "$lib/api-k8s";
+import { Button } from "$lib/components/ui/button/index.js";
 import * as Table from "$lib/components/ui/table/index.js";
 import type { KaiSchedulerQueue } from "../../../model/k8s";
 
 let queues = $state<KaiSchedulerQueue[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
+let refreshing = $state(false);
 
 function formatResource(val: number | undefined): string {
 	if (val === undefined) return "-";
@@ -21,7 +24,14 @@ async function fetchData() {
 		error = e instanceof Error ? e.message : "Failed to fetch KAI queues";
 	} finally {
 		loading = false;
+		refreshing = false;
 	}
+}
+
+async function refresh() {
+	refreshing = true;
+	error = null;
+	await fetchData();
 }
 
 $effect(() => {
@@ -33,6 +43,10 @@ $effect(() => {
 	<div class="flex items-center gap-3">
 		<GitBranch class="size-8 text-primary" />
 		<h1 class="text-3xl font-bold tracking-tight">KAI Queues</h1>
+		<Button variant="outline" size="sm" onclick={refresh} disabled={refreshing} class="ml-auto">
+			<RefreshCw class="size-4 {refreshing ? 'animate-spin' : ''}" />
+			Refresh
+		</Button>
 	</div>
 	<p class="text-muted-foreground">KAI scheduler queues and their resource configurations.</p>
 

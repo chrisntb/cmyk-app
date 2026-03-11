@@ -1,7 +1,9 @@
 <script lang="ts">
 import Cpu from "@lucide/svelte/icons/cpu";
+import RefreshCw from "@lucide/svelte/icons/refresh-cw";
 import { resolve } from "$app/paths";
 import { fetchK8sResourceFlavors } from "$lib/api-k8s";
+import { Button } from "$lib/components/ui/button/index.js";
 import * as Table from "$lib/components/ui/table/index.js";
 
 interface NodeTaint {
@@ -28,6 +30,7 @@ interface ResourceFlavor {
 let flavors = $state<ResourceFlavor[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
+let refreshing = $state(false);
 
 async function fetchFlavors() {
 	try {
@@ -36,7 +39,14 @@ async function fetchFlavors() {
 		error = e instanceof Error ? e.message : "Failed to fetch resource flavors";
 	} finally {
 		loading = false;
+		refreshing = false;
 	}
+}
+
+async function refresh() {
+	refreshing = true;
+	error = null;
+	await fetchFlavors();
 }
 
 $effect(() => {
@@ -48,6 +58,10 @@ $effect(() => {
 	<div class="flex items-center gap-3">
 		<Cpu class="size-8 text-primary" />
 		<h1 class="text-3xl font-bold tracking-tight">Resource Flavors</h1>
+		<Button variant="outline" size="sm" onclick={refresh} disabled={refreshing} class="ml-auto">
+			<RefreshCw class="size-4 {refreshing ? 'animate-spin' : ''}" />
+			Refresh
+		</Button>
 	</div>
 	<p class="text-muted-foreground">Available resource flavors and their configurations.</p>
 

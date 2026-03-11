@@ -1,7 +1,9 @@
 <script lang="ts">
 import List from "@lucide/svelte/icons/list";
+import RefreshCw from "@lucide/svelte/icons/refresh-cw";
 import { resolve } from "$app/paths";
 import { fetchK8sLocalQueues } from "$lib/api-k8s";
+import { Button } from "$lib/components/ui/button/index.js";
 import * as Table from "$lib/components/ui/table/index.js";
 
 interface LocalQueue {
@@ -17,6 +19,7 @@ interface LocalQueue {
 let queues = $state<LocalQueue[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
+let refreshing = $state(false);
 
 async function fetchQueues() {
 	try {
@@ -25,7 +28,14 @@ async function fetchQueues() {
 		error = e instanceof Error ? e.message : "Failed to fetch local queues";
 	} finally {
 		loading = false;
+		refreshing = false;
 	}
+}
+
+async function refresh() {
+	refreshing = true;
+	error = null;
+	await fetchQueues();
 }
 
 $effect(() => {
@@ -37,6 +47,10 @@ $effect(() => {
 	<div class="flex items-center gap-3">
 		<List class="size-8 text-primary" />
 		<h1 class="text-3xl font-bold tracking-tight">Kueue Queues</h1>
+		<Button variant="outline" size="sm" onclick={refresh} disabled={refreshing} class="ml-auto">
+			<RefreshCw class="size-4 {refreshing ? 'animate-spin' : ''}" />
+			Refresh
+		</Button>
 	</div>
 	<p class="text-muted-foreground">Local queues and their workload status.</p>
 

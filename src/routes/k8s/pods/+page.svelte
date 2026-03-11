@@ -7,8 +7,10 @@ import CircleCheck from "@lucide/svelte/icons/circle-check";
 import CircleDashed from "@lucide/svelte/icons/circle-dashed";
 import CircleX from "@lucide/svelte/icons/circle-x";
 import Clock from "@lucide/svelte/icons/clock";
+import RefreshCw from "@lucide/svelte/icons/refresh-cw";
 import { resolve } from "$app/paths";
 import { fetchK8sPods } from "$lib/api-k8s";
+import { Button } from "$lib/components/ui/button/index.js";
 import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 import * as Table from "$lib/components/ui/table/index.js";
 
@@ -26,6 +28,7 @@ let pods = $state<Pod[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
 let nodeFilter = $state("");
+let refreshing = $state(false);
 
 let nodeNames = $derived([...new Set(pods.map((p) => p.node))].sort());
 
@@ -40,7 +43,14 @@ async function fetchPods() {
 		error = e instanceof Error ? e.message : "Failed to fetch pods";
 	} finally {
 		loading = false;
+		refreshing = false;
 	}
+}
+
+async function refresh() {
+	refreshing = true;
+	error = null;
+	await fetchPods();
 }
 
 function getStatusIcon(statusClass: string) {
@@ -72,6 +82,10 @@ $effect(() => {
 	<div class="flex items-center gap-3">
 		<Box class="size-8 text-primary" />
 		<h1 class="text-3xl font-bold tracking-tight">Pods</h1>
+		<Button variant="outline" size="sm" onclick={refresh} disabled={refreshing} class="ml-auto">
+			<RefreshCw class="size-4 {refreshing ? 'animate-spin' : ''}" />
+			Refresh
+		</Button>
 	</div>
 	<p class="text-muted-foreground">Containers running in the cluster.</p>
 
