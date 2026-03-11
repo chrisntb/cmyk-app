@@ -30,7 +30,17 @@ let error = $state<string | null>(null);
 let nodeFilter = $state("");
 let refreshing = $state(false);
 
-let nodeNames = $derived([...new Set(pods.map((p) => p.node))].sort());
+// DEMO HACK: rename nodes for presentation
+const nodeAliases: Record<string, string> = {
+	a08mlm003: "hpc-wrk-compute-1",
+	a08mgc005: "hpc-wrk-compute-2",
+	a08mlm002: "hpc-wrk-system-1",
+	a08mlm001: "controller",
+};
+const nodeAlias = (node: string) => nodeAliases[node] ?? node;
+const nodeName = (node: string) => nodeAliases[node] ? `${nodeAliases[node]} (${node})` : node;
+
+let nodeNames = $derived([...new Set(pods.map((p) => p.node).filter(Boolean))].sort());
 
 let filteredPods = $derived(
 	nodeFilter ? pods.filter((p) => p.node === nodeFilter) : pods,
@@ -105,21 +115,22 @@ $effect(() => {
 						<Table.Head>Status</Table.Head>
 						<Table.Head>Restarts</Table.Head>
 						<Table.Head>Pod IP</Table.Head>
-						<Table.Head>
+						<Table.Head>Node Name</Table.Head>
+						<Table.Head class="w-48">
 							<div class="flex flex-col gap-1">
-								<span>Node</span>
+								<span>Node Alias</span>
 								<DropdownMenu.Root>
 									<DropdownMenu.Trigger>
 										<button
-											class="flex h-7 w-40 items-center justify-between rounded border border-input bg-background px-2 text-xs font-normal text-foreground hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring"
+											class="flex h-7 w-44 items-center justify-between rounded border border-input bg-background px-2 text-xs font-normal text-foreground hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring"
 										>
 											<span class={nodeFilter ? "" : "text-muted-foreground"}>
-												{nodeFilter || "All nodes"}
+												{nodeFilter ? nodeAlias(nodeFilter) : "All nodes"}
 											</span>
 											<ChevronDown class="size-3 shrink-0 text-muted-foreground" />
 										</button>
 									</DropdownMenu.Trigger>
-									<DropdownMenu.Content class="w-40">
+									<DropdownMenu.Content class="w-44 text-xs">
 										<DropdownMenu.Item onclick={() => (nodeFilter = "")}>
 											<Check class="size-4 {nodeFilter === '' ? 'opacity-100' : 'opacity-0'}" />
 											All nodes
@@ -128,7 +139,7 @@ $effect(() => {
 										{#each nodeNames as node (node)}
 											<DropdownMenu.Item onclick={() => (nodeFilter = node)}>
 												<Check class="size-4 {nodeFilter === node ? 'opacity-100' : 'opacity-0'}" />
-												{node}
+												{nodeAlias(node)}
 											</DropdownMenu.Item>
 										{/each}
 									</DropdownMenu.Content>
@@ -168,7 +179,8 @@ $effect(() => {
 								{/if}
 							</Table.Cell>
 							<Table.Cell class="font-mono text-sm">{pod.podIP || '-'}</Table.Cell>
-							<Table.Cell class="text-muted-foreground">{pod.node}</Table.Cell>
+							<Table.Cell class="font-mono text-sm text-muted-foreground">{pod.node || '-'}</Table.Cell>
+							<Table.Cell class="text-muted-foreground">{pod.node ? nodeAlias(pod.node) : '-'}</Table.Cell>
 						</Table.Row>
 					{/each}
 				</Table.Body>
