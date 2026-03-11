@@ -156,7 +156,7 @@ $effect(() => {
 											class="flex h-7 w-44 items-center justify-between rounded border border-input bg-background px-2 text-xs font-normal text-foreground hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring"
 										>
 											<span class={nodeFilter ? "" : "text-muted-foreground"}>
-												{nodeFilter ? nodeAlias(nodeFilter) : "All Nodes"}
+												{nodeFilter ? nodeAlias(nodeFilter) : "All Node Aliases"}
 											</span>
 											<ChevronDown class="size-3 shrink-0 text-muted-foreground" />
 										</button>

@@ -23,6 +23,15 @@ let loading = $state(true);
 let error = $state<string | null>(null);
 let refreshing = $state(false);
 
+// DEMO HACK: rename nodes for presentation
+const nodeAliases: Record<string, string> = {
+	a08mlm003: "controller",
+	a08mlm002: "hpc-wrk-system-1",
+	a08mlm001: "hpc-wrk-compute-1",
+	a08mgc005: "hpc-wrk-compute-2",
+};
+const nodeAlias = (name: string) => nodeAliases[name] ?? name;
+
 async function fetchNodes() {
 	try {
 		nodes = await fetchK8sNodes();
@@ -75,6 +84,7 @@ $effect(() => {
 			<Table.Root>
 				<Table.Header>
 					<Table.Row>
+						<Table.Head>Alias</Table.Head>
 						<Table.Head>Name</Table.Head>
 						<Table.Head>Status</Table.Head>
 						<Table.Head>Roles</Table.Head>
@@ -87,6 +97,7 @@ $effect(() => {
 				<Table.Body>
 					{#each nodes as node (node.name)}
 						<Table.Row>
+							<Table.Cell class="font-medium">{nodeAlias(node.name)}</Table.Cell>
 							<Table.Cell class="font-medium">
 								<a href={resolve(`/k8s/nodes/${node.name}`)} class="text-primary hover:underline">
 									{node.name}
