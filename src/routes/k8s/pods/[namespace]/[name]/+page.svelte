@@ -119,8 +119,8 @@ function getStatusIcon(statusClass: string) {
 	}
 }
 
-function getContainerStateClass(state: string): string {
-	switch (state.toLowerCase()) {
+function getContainerStateClass(state: string | undefined): string {
+	switch (state?.toLowerCase()) {
 		case "running":
 			return "text-green-600 dark:text-green-400";
 		case "terminated":
