@@ -28,6 +28,7 @@ let pods = $state<Pod[]>([]);
 let loading = $state(true);
 let error = $state<string | null>(null);
 let nodeFilter = $state("");
+let namespaceFilter = $state("");
 let refreshing = $state(false);
 
 // DEMO HACK: rename nodes for presentation
@@ -41,9 +42,12 @@ const nodeAlias = (node: string) => nodeAliases[node] ?? node;
 const nodeName = (node: string) => nodeAliases[node] ? `${nodeAliases[node]} (${node})` : node;
 
 let nodeNames = $derived([...new Set(pods.map((p) => p.node).filter(Boolean))].sort());
+let namespaces = $derived([...new Set(pods.map((p) => p.namespace))].sort());
 
 let filteredPods = $derived(
-	nodeFilter ? pods.filter((p) => p.node === nodeFilter) : pods,
+	pods
+		.filter((p) => !nodeFilter || p.node === nodeFilter)
+		.filter((p) => !namespaceFilter || p.namespace === namespaceFilter),
 );
 
 async function fetchPods() {
@@ -111,7 +115,36 @@ $effect(() => {
 				<Table.Header>
 					<Table.Row>
 						<Table.Head>Name</Table.Head>
-						<Table.Head>Namespace</Table.Head>
+						<Table.Head>
+							<div class="flex flex-col gap-1">
+								<span>Namespace</span>
+								<DropdownMenu.Root>
+									<DropdownMenu.Trigger>
+										<button
+											class="flex h-7 w-36 items-center justify-between rounded border border-input bg-background px-2 text-xs font-normal text-foreground hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring"
+										>
+											<span class={namespaceFilter ? "" : "text-muted-foreground"}>
+												{namespaceFilter || "All namespaces"}
+											</span>
+											<ChevronDown class="size-3 shrink-0 text-muted-foreground" />
+										</button>
+									</DropdownMenu.Trigger>
+									<DropdownMenu.Content class="w-36 text-xs">
+										<DropdownMenu.Item onclick={() => (namespaceFilter = "")}>
+											<Check class="size-4 {namespaceFilter === '' ? 'opacity-100' : 'opacity-0'}" />
+											Namespaces
+										</DropdownMenu.Item>
+										<DropdownMenu.Separator />
+										{#each namespaces as ns (ns)}
+											<DropdownMenu.Item onclick={() => (namespaceFilter = ns)}>
+												<Check class="size-4 {namespaceFilter === ns ? 'opacity-100' : 'opacity-0'}" />
+												{ns}
+											</DropdownMenu.Item>
+										{/each}
+									</DropdownMenu.Content>
+								</DropdownMenu.Root>
+							</div>
+						</Table.Head>
 						<Table.Head>Status</Table.Head>
 						<Table.Head>Restarts</Table.Head>
 						<Table.Head>Pod IP</Table.Head>
@@ -124,7 +157,7 @@ $effect(() => {
 											class="flex h-7 w-44 items-center justify-between rounded border border-input bg-background px-2 text-xs font-normal text-foreground hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring"
 										>
 											<span class={nodeFilter ? "" : "text-muted-foreground"}>
-												{nodeFilter ? nodeAlias(nodeFilter) : "All nodes"}
+												{nodeFilter ? nodeAlias(nodeFilter) : "Nodes"}
 											</span>
 											<ChevronDown class="size-3 shrink-0 text-muted-foreground" />
 										</button>
