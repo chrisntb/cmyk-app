@@ -40,7 +40,7 @@
 										{
 											"key": "metadata.name",
 											"operator": "In",
-											"values": ["wrk-hpc-1"]
+											"values": ["hpc-wrk-compute-1"]
 										}
 									]
 								}
@@ -173,7 +173,7 @@
 						]
 					}
 				],
-				"nodeName": "wrk-hpc-1",
+				"nodeName": "hpc-wrk-compute-1",
 				"preemptionPolicy": "PreemptLowerPriority",
 				"priority": 2000001000,
 				"priorityClassName": "system-node-critical",
@@ -533,7 +533,7 @@
 										{
 											"key": "metadata.name",
 											"operator": "In",
-											"values": ["wrk-hpc-2"]
+											"values": ["hpc-wrk-compute-2"]
 										}
 									]
 								}
@@ -666,7 +666,7 @@
 						]
 					}
 				],
-				"nodeName": "wrk-hpc-2",
+				"nodeName": "hpc-wrk-compute-2",
 				"preemptionPolicy": "PreemptLowerPriority",
 				"priority": 2000001000,
 				"priorityClassName": "system-node-critical",
@@ -3014,7 +3014,7 @@
 										{
 											"key": "metadata.name",
 											"operator": "In",
-											"values": ["wrk-hpc-2"]
+											"values": ["hpc-wrk-compute-2"]
 										}
 									]
 								}
@@ -3074,7 +3074,7 @@
 				"dnsPolicy": "ClusterFirst",
 				"enableServiceLinks": true,
 				"hostNetwork": true,
-				"nodeName": "wrk-hpc-2",
+				"nodeName": "hpc-wrk-compute-2",
 				"nodeSelector": {
 					"kubernetes.io/os": "linux"
 				},
@@ -3329,7 +3329,7 @@
 										{
 											"key": "metadata.name",
 											"operator": "In",
-											"values": ["wrk-hpc-1"]
+											"values": ["hpc-wrk-compute-1"]
 										}
 									]
 								}
@@ -3389,7 +3389,7 @@
 				"dnsPolicy": "ClusterFirst",
 				"enableServiceLinks": true,
 				"hostNetwork": true,
-				"nodeName": "wrk-hpc-1",
+				"nodeName": "hpc-wrk-compute-1",
 				"nodeSelector": {
 					"kubernetes.io/os": "linux"
 				},
@@ -4267,7 +4267,7 @@
 				],
 				"dnsPolicy": "ClusterFirst",
 				"enableServiceLinks": true,
-				"nodeName": "wrk-hpc-2",
+				"nodeName": "hpc-wrk-compute-2",
 				"preemptionPolicy": "PreemptLowerPriority",
 				"priority": 0,
 				"restartPolicy": "Always",

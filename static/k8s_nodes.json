@@ -242,10 +242,10 @@
 					"beta.kubernetes.io/arch": "amd64",
 					"beta.kubernetes.io/os": "linux",
 					"kubernetes.io/arch": "amd64",
-					"kubernetes.io/hostname": "wrk-hpc-1",
+					"kubernetes.io/hostname": "hpc-wrk-compute-1",
 					"kubernetes.io/os": "linux"
 				},
-				"name": "mock-wrk-hpc-1",
+				"name": "mock-hpc-wrk-compute-1",
 				"resourceVersion": "27581",
 				"uid": "2058cf09-082d-41ac-8e31-fb1ff5f18f36"
 			},
@@ -260,7 +260,7 @@
 						"type": "InternalIP"
 					},
 					{
-						"address": "wrk-hpc-1",
+						"address": "hpc-wrk-compute-1",
 						"type": "Hostname"
 					}
 				],
@@ -418,10 +418,10 @@
 					"beta.kubernetes.io/arch": "amd64",
 					"beta.kubernetes.io/os": "linux",
 					"kubernetes.io/arch": "amd64",
-					"kubernetes.io/hostname": "wrk-hpc-2",
+					"kubernetes.io/hostname": "hpc-wrk-compute-2",
 					"kubernetes.io/os": "linux"
 				},
-				"name": "mock-wrk-hpc-2",
+				"name": "mock-hpc-wrk-compute-2",
 				"resourceVersion": "27368",
 				"uid": "616b1d44-03c5-42d4-95a4-2002430e6153"
 			},
@@ -436,7 +436,7 @@
 						"type": "InternalIP"
 					},
 					{
-						"address": "wrk-hpc-2",
+						"address": "hpc-wrk-compute-2",
 						"type": "Hostname"
 					}
 				],
