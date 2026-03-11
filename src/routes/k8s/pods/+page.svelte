@@ -118,7 +118,6 @@ $effect(() => {
 						<Table.Head>Node Name</Table.Head>
 						<Table.Head class="w-48">
 							<div class="flex flex-col gap-1">
-								<span>Node Alias</span>
 								<DropdownMenu.Root>
 									<DropdownMenu.Trigger>
 										<button
