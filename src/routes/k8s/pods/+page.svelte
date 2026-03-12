@@ -36,7 +36,7 @@ const nodeAliases: Record<string, string> = {
 	a08mlm003: "controller",
 	a08mlm002: "hpc-wrk-system-1",
 	a08mlm001: "hpc-wrk-compute-1",
-	a08mgc005: "hpc-wrk-compute-2",
+	a08mgc005: "hpc-wrk-gpu-1",
 };
 const nodeAlias = (node: string) => nodeAliases[node] ?? node;
 const nodeName = (node: string) => nodeAliases[node] ? `${nodeAliases[node]} (${node})` : node;
