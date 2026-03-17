@@ -25,9 +25,10 @@ let refreshing = $state(false);
 
 // DEMO HACK: rename nodes for presentation
 const nodeAliases: Record<string, string> = {
-	a08mlm003: "controller",
-	a08mlm002: "hpc-wrk-system-1",
-	a08mlm001: "hpc-wrk-compute-1",
+	a08mlm001: "controller",
+	a08mlm002: "manangement",
+	a08mlm003: "hpc-wrk-system-1",
+	a08mlm004: "hpc-wrk-compute-1",
 	a08mgc005: "hpc-wrk-gpu-1",
 };
 const nodeAlias = (name: string) => nodeAliases[name] ?? name;
